@@ -1,4 +1,0 @@
-# PDF
----
-
-LICENSE MIT © 2020 DEMIR KASYAN
