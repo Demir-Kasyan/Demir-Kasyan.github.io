@@ -594,7 +594,8 @@ body.admin-bar.et_non_fixed_nav.et_transparent_nav.et_header_style_slide #main-h
     -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
     font-weight: 500;
-    line-height: 23px
+    line-height: 23px;
+    border-bottom: solid 2px #2d3637;
 }
 
 .et_duplicate_social_icons {
@@ -21345,7 +21346,7 @@ body.et_left_sidebar .pricing-table, body.et_right_sidebar .pricing-table {
 }
 
 div.et_pb_section.et_pb_section_7 {
-    background-image: linear-gradient(176deg, #222222 12%, cornflowerblue 110%), url(https://www.rysostrovid.cz/wp-content/uploads/2019/07/Rys-Rýša-1.jpg) !important
+    background-image: linear-gradient(176deg, #2d3637 12%, #009aff 110%), url(https://www.rysostrovid.cz/wp-content/uploads/2019/07/Rys-Rýša-1.jpg) !important
 }
 
 .et_pb_contact_field_1.et_pb_contact_field .input:focus:hover::-moz-placeholder {
