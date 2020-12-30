@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta name="description" content="" />
+    <meta charset="utf-8">
+    <title>Home>>Meniny</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="../assets/styles/index.styles.css">
+</head>
+
+<body>
+<header> <a href="../index.html">Home</a>>><a href="meminy.html">Meniny</a></header>
+<div class="container">
+    <div  class="center">
+        <div id="nowDate">
+            <p id="today"></p>
+            <div id="todayMeniny" class="meniny">
+            </div>
+        </div>
+        <div id="byDate">
+            <input id="dateToFind" type="text" align="center" placeholder="01.03 or 1.3" onkeydown="findByDate()">
+            <div id="byDayMeniny" class="meniny">
+            </div>
+        </div>
+            <div class="autocomplete" >
+                <input id="searchField" type="text" placeholder="Name" onkeydown="findByWord()" />
+            </div>
+        <div id="byName">
+            <div id="byWordMeniny" class="meniny">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/scripts/meniny.js"></script>
+<footer><div id="qooi-counter">
+    <a style="display:none;" href="http://qooi.ru/" title="Бесплатный счетчик посещений на сайт">
+        <img src="http://qooi.ru/counter/standard/009.png" alt="Счетчик посещаемости и статистика сайта">
+    </a>
+    Визиты: <div id="qooi-counter-visits"></div>
+</div>
+    <script type="text/javascript" src="http://qooi.ru/counter.js"></script></footer>
+</body>
+</html>
