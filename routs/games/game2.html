@@ -14,16 +14,32 @@
 <body>
 <header>
 <!--    <button onclick="location.href='../games.html'">return</button>-->
-    <a href="../../index.html">Home</a>>><a href="../games.html">Games</a>>><a href="game1.html">Game2</a>
+    <a href="../../index.html">Home</a>>><a href="../games.html">Games</a>>><a href="game2.html">Game2</a>
 </header>
 <div class="container" style="overflow: auto">
     <div class="center">
+        <img style="display: none; margin-right: auto; margin-left: auto;  width: 280px; height: 400px;" id="demo" src="../../assets/images/games/game2/game2.gif" alt=".">
         <div id="container">
 
         </div>
+        <button style="width: 100%; margin-bottom: 100px" id="demoButton" onclick="showDemo()">DEMO</button>
     </div>
 </div>
 <script src="../../assets/scripts/games/game2.js"></script>
+<script>
+    function showDemo(){
+        if(document.getElementById('demo').style.display==='none'){
+            document.getElementById('demo').style.display='';
+            document.getElementById('container').style.display='none';
+            document.getElementById('demoButton').innerHTML='PLAY';
+        }
+        else {
+            document.getElementById('demo').style.display='none';
+            document.getElementById('container').style.display='';
+            document.getElementById('demoButton').innerHTML='DEMO';
+        }
+    }
+</script>
 <footer>
     <p>Something about creator</p>
     <div id="qooi-counter">

@@ -17,18 +17,30 @@
     <a href="../../index.html">Home</a>>><a href="../games.html">Games</a>>><a href="game1.html">Game1</a>
 </header>
 <div class="container" style="overflow: auto">
+
     <div class="center">
+        <img style="display: none; margin-right: auto; margin-left: auto;  width: 280px; height: 400px;" id="demo" src="../../assets/images/games/game1/game1.gif" alt=".">
         <div id="container">
 
-            <button id="demoButton" style="width: 100%">DEMO</button>
         </div>
-        <div style="display: none" id="demo">
-            <img>
-            <button id="gameButton" style="width: 100%">DEMO</button>
-        </div>
+        <button style="width: 100%; margin-bottom: 100px" id="demoButton" onclick="showDemo()">DEMO</button>
     </div>
 </div>
 <script src="../../assets/scripts/games/game1.js"></script>
+<script>
+    function showDemo(){
+        if(document.getElementById('demo').style.display==='none'){
+            document.getElementById('demo').style.display='';
+            document.getElementById('container').style.display='none';
+            document.getElementById('demoButton').innerHTML='PLAY';
+        }
+        else {
+            document.getElementById('demo').style.display='none';
+            document.getElementById('container').style.display='';
+            document.getElementById('demoButton').innerHTML='DEMO';
+        }
+    }
+</script>
 <footer>
     <p>Something about creator</p>
     <div id="qooi-counter">

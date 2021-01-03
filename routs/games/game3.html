@@ -18,12 +18,28 @@
 </header>
 <div class="container" style="overflow: auto">
     <div class="center">
+        <img style="display: none; margin-right: auto; margin-left: auto;  width: 280px; height: 400px;" id="demo" src="../../assets/images/games/game3/game3.gif" alt=".">
         <div id="container">
 
         </div>
+        <button style="width: 100%; margin-bottom: 100px" id="demoButton" onclick="showDemo()">DEMO</button>
     </div>
 </div>
 <script src="../../assets/scripts/games/game3.js"></script>
+<script>
+    function showDemo(){
+        if(document.getElementById('demo').style.display==='none'){
+            document.getElementById('demo').style.display='';
+            document.getElementById('container').style.display='none';
+            document.getElementById('demoButton').innerHTML='PLAY';
+        }
+        else {
+            document.getElementById('demo').style.display='none';
+            document.getElementById('container').style.display='';
+            document.getElementById('demoButton').innerHTML='DEMO';
+        }
+    }
+</script>
 <footer>
     <p>Something about creator</p>
     <div id="qooi-counter">

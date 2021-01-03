@@ -43,7 +43,7 @@ function initStage(images) {
     var stage = new Konva.Stage({
         container: 'container',
         width: 560,
-        height: 800,
+        height: 700,
     });
     var background = new Konva.Layer();
     var objectLayer = new Konva.Layer();
