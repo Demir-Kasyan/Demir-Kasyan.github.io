@@ -81,10 +81,10 @@ function readXml(xmlFile){
     });
 }
 function today(){
-    let today = new Date().getDate()+"."+new Date().getMonth();
+    let today = (new Date().getDate()<10?"0"+new Date().getDate():new Date().getDate())+"."+((new Date().getMonth()+1)<10?"0"+(new Date().getMonth()+1):(new Date().getMonth()+1));
     document.getElementById("today").innerText = today;
     array.filter(x=>x.den === today)?.forEach(x=>{
-        document.getElementById("todayMeniny").innerText += x.toStrin();
+        document.getElementById("todayMeniny").innerText += x.toString();
     });
     if(document.getElementById("todayMeniny").innerText===""){
         document.getElementById("todayMeniny").innerText = "---"
@@ -95,6 +95,9 @@ function findByDate(event){
     if(event.keyCode === 13){
 
       let date = event.target.value;
+        let d1 = date.split('.')[0];
+        let d2 = date.split('.')[1];
+        date = (d1.length<=1?"0"+d1:d1)+'.'+(d2.length<=1?"0"+d2:d2);
         document.getElementById("byDayMeniny").innerText = "";
         array.filter(x=>x.den === date)?.forEach(x=>{
             document.getElementById("byDayMeniny").innerText += x.toString();

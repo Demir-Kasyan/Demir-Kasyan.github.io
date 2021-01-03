@@ -83,10 +83,6 @@ function initStage(images) {
         blue_book: {
             x: 60,
             y: 640,
-        },
-        cairo: {
-            x: 403,
-            y: 560,
         }
     };
     var outlines = {
@@ -121,10 +117,6 @@ function initStage(images) {
         red_book_black: {
             x: 228.7,
             y: 126.6,
-        },
-        cairo_black: {
-            x: -1000,
-            y: -1000,
         }
     };
 
@@ -218,22 +210,12 @@ function initStage(images) {
 var sources = {
     back: 'back.png',
     tree: 'tree.png',
-    // tree_black: 'tree_black.png',
     human_green: 'human_green.png',
-    // human_green_black: 'human_green_black.png',
     human_blue: 'human_blue.png',
-    // human_blue_black: 'human_blue_black.png',
     human_pink: 'human_pink.png',
-    // human_pink_black: 'human_pink_black.png',
     books: 'books.png',
-    // books_black: 'books_black.png',
     fire: 'fire.png',
-    // fire_black: 'fire_black.png',
     red_book: 'red_book.png',
-    // red_book_black: 'red_book_black.png',
     blue_book: 'blue_book.png',
-    // blue_book_black: 'blue_book_black.png',
-    cairo: 'cairo.png',
-    // cairo_black: 'cairo_black.png'
 };
 loadImages(sources, initStage);
