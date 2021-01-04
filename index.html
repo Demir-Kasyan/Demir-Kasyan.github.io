@@ -20,16 +20,21 @@
     </div>
 </div>
 <footer>
-    <!-- HostCiti.net --><a href="http://hostciti.net/" title="hostciti.net" target="_blank" onclick="this.href='http://hostciti.net/stat/?ch=stat'+'&r='+escape(window.location.href.slice(7));" >
-    <script type="text/javascript" language="javascript">
-Coun='<img src="http://hostciti.net/stat/stat.php?i=1&col=4d95bf&tc=ffffff';
-    iD=document; Coun+='&d='+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
-        +"&w="+screen.width+'&h='+screen.height;
-    iH=window.location.href.slice(7);
-    Coun+='&r='+escape(iH);
-    Coun+='&n='+escape(iD.referrer.slice(7));
-    iD.write(Coun+'" width="88" height="31" border="0" />');
-    </script></a><!-- End of HostCiti.net counter -->
+    <!-- HotLog -->
+    <span id="hotlog_counter"></span>
+    <span id="hotlog_dyn"></span>
+    <script type="text/javascript"> var hot_s = document.createElement('script');
+    hot_s.type = 'text/javascript'; hot_s.async = true;
+    hot_s.src = 'http://js.hotlog.ru/dcounter/2593166.js';
+    hot_d = document.getElementById('hotlog_dyn');
+    hot_d.appendChild(hot_s);
+    </script>
+    <noscript>
+        <a href="http://click.hotlog.ru/?2593166" target="_blank">
+            <img src="http://hit5.hotlog.ru/cgi-bin/hotlog/count?s=2593166&im=68" border="0"
+                 title="HotLog" alt="HotLog"></a>
+    </noscript>
+    <!-- /HotLog -->
 </footer>
 </body>
 </html>
