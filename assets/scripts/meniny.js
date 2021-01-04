@@ -25,7 +25,7 @@ class Zaznam{
 
 var array = [];
 var names = [];
-
+//читаем файлик и записываем в массив
 function readXml(xmlFile){
     var xmlDoc;
 
@@ -80,6 +80,7 @@ function readXml(xmlFile){
        })
     });
 }
+//смотрим сегодняшний день и ищем на сегодня именины
 function today(){
     let today = (new Date().getDate()<10?"0"+new Date().getDate():new Date().getDate())+"."+((new Date().getMonth()+1)<10?"0"+(new Date().getMonth()+1):(new Date().getMonth()+1));
     document.getElementById("today").innerText = today;
@@ -90,6 +91,7 @@ function today(){
         document.getElementById("todayMeniny").innerText = "---"
     }
 }
+//ищем за датой
 function findByDate(event){
     event = event || window.event;
     if(event.keyCode === 13){
@@ -107,6 +109,7 @@ function findByDate(event){
         }
     }
 }
+//ищем по именам везде
 function findByWord(event){
     event = event || window.event;
     if(event.keyCode === 13){
@@ -126,6 +129,7 @@ function findByWord(event){
         }
     }
 }
+//автозавершение
 function autocomplete(searchEle, arr) {
     var currentFocus;
     searchEle.addEventListener("input", function(e) {

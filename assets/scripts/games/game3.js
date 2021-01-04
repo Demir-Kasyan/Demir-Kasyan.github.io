@@ -1,3 +1,5 @@
+var count = true;
+
 function loadImages(sources, callback) {
     var assetDir = '../../assets/images/games/game3/';
     var images = {};
@@ -207,3 +209,15 @@ var sources = {
     box3: 'box3.png',
 };
 loadImages(sources, initStage);
+
+var timer = document.getElementById("timer");
+var zero = 0;
+function tick(){
+    setTimeout(()=>{
+        if(count){
+            timer.innerText = ++zero + " seconds"
+            tick();
+        }
+    }, 1000);
+}
+tick();

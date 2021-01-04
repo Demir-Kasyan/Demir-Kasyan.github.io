@@ -1,3 +1,6 @@
+var count = true;
+
+// в данной фунции просто подгружаем изображения что нам нужны
 function loadImages(sources, callback) {
     var assetDir = '../../assets/images/games/game1/';
     var images = {};
@@ -17,8 +20,9 @@ function loadImages(sources, callback) {
     }
 }
 
-function isNearOutline(animal, outline) {
-    var a = animal;
+//проверяем находится ли картинка что мы двигали над местом где она должна быть
+function isNearOutline(obj, outline) {
+    var a = obj;
     var o = outline;
     var ax = a.x();
     var ay = a.y();
@@ -29,7 +33,7 @@ function isNearOutline(animal, outline) {
         return false;
     }
 }
-
+//настройки для заднего фона и текста
 function drawBackground(background, beachImg, text) {
     var context = background.getContext();
     context.drawImage(beachImg, 0, 0);
@@ -38,7 +42,7 @@ function drawBackground(background, beachImg, text) {
     context.setAttr('fillStyle', 'black');
     context.fillText(text, background.getStage().width() / 2, background.getStage().height()-100);
 }
-
+//инициализация контейнера для игры, всех координат изображений и тд.
 function initStage(images) {
     var stage = new Konva.Stage({
         container: 'container',
@@ -51,7 +55,7 @@ function initStage(images) {
     var score = 0;
 
     // image positions
-    var animals = {
+    var objs = {
         tree: {
             x: 0,
             y: 500,
@@ -85,6 +89,7 @@ function initStage(images) {
             y: 640,
         }
     };
+    //где они должны бить по теории игры
     var outlines = {
         tree_black: {
             x: 345,
@@ -120,12 +125,12 @@ function initStage(images) {
         }
     };
 
-    // create draggable objects
-    for (var key in animals) {
+    // create обьекты которые можно двигать
+    for (var key in objs) {
         // anonymous function to induce scope
         (function () {
             var privKey = key;
-            var anim = animals[key];
+            var anim = objs[key];
 
             var object = new Konva.Image({
                 image: images[key],
@@ -133,7 +138,7 @@ function initStage(images) {
                 y: anim.y,
                 draggable: true,
             });
-
+            //процес перемещения
             object.on('dragstart', function () {
                 this.moveToTop();
                 objectLayer.draw();
@@ -141,6 +146,9 @@ function initStage(images) {
             /*
              * check if object is in the right spot and
              * snap into place if it is
+             * ----------------------------------------
+             * проверяем если обьект в правильном сети и
+             * ставим его туда если так и есть
              */
             object.on('dragend', function () {
                 var outline = outlines[privKey + '_black'];
@@ -154,6 +162,7 @@ function initStage(images) {
 
                     if (++score >= 8) {
                         var text = 'You win! Enjoy your booty!';
+                        count = false;
                         drawBackground(background, images.back, text);
                     }
 
@@ -163,7 +172,7 @@ function initStage(images) {
                     }, 50);
                 }
             });
-            // make object glow on mouseover
+            // меняем курсор над картинкой что можно перемещать
             object.on('mouseover', function () {
                 document.body.style.cursor = 'pointer';
             });
@@ -180,7 +189,7 @@ function initStage(images) {
             objectsShapes.push(object);
         })();
     }
-    // create outlines
+    // create outlines \ создаем места где должны быть картики по задумке игры
     for (var key in outlines) {
         // anonymous function to induce scope
         (function () {
@@ -219,3 +228,15 @@ var sources = {
     blue_book: 'blue_book.png',
 };
 loadImages(sources, initStage);
+
+var timer = document.getElementById("timer");
+var zero = 0;
+function tick(){
+    setTimeout(()=>{
+        if(count){
+            timer.innerText = ++zero + " seconds"
+            tick();
+        }
+    }, 1000);
+}
+tick();

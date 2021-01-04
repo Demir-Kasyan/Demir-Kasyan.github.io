@@ -23,9 +23,9 @@
 
         </div>
         <button style="width: 100%; margin-bottom: 150px" id="demoButton" onclick="showDemo()">DEMO</button>
+        lorem ipsum
     </div>
 </div>
-<script src="../../assets/scripts/games/game3.js"></script>
 <script>
     function showDemo(){
         if(document.getElementById('demo').style.display==='none'){
@@ -41,22 +41,21 @@
     }
 </script>
 <footer>
-    <p>Something about creator</p>
-    <!-- HotLog -->
-    <span id="hotlog_counter"></span>
-    <span id="hotlog_dyn"></span>
-    <script type="text/javascript"> var hot_s = document.createElement('script');
-    hot_s.type = 'text/javascript'; hot_s.async = true;
-    hot_s.src = 'http://js.hotlog.ru/dcounter/2593166.js';
-    hot_d = document.getElementById('hotlog_dyn');
-    hot_d.appendChild(hot_s);
-    </script>
-    <noscript>
-        <a href="http://click.hotlog.ru/?2593166" target="_blank">
-            <img src="http://hit5.hotlog.ru/cgi-bin/hotlog/count?s=2593166&im=68" border="0"
-                 title="HotLog" alt="HotLog"></a>
-    </noscript>
-    <!-- /HotLog -->
+    <div id="timer"></div>
+    <script src="../../assets/scripts/games/game3.js"></script>
+    <!-- I.UA counter --><a href="https://www.i.ua/" target="_blank" onclick="this.href='https://i.ua/r.php?231978';" title="Rated by I.UA">
+    <script>
+        iS='http'+(window.location.protocol==='https:'?'s':'')+
+            '://r.i.ua/s?u231978&p4&n'+Math.random();
+        iD=document;if(!iD.cookie)iD.cookie="b=b; path=/";if(iD.cookie)iS+='&c1';
+        iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
+            +"&w"+screen.width+'&h'+screen.height;
+        iT=iR=iD.referrer.replace(iP=/^[a-z]*:\/\//,'');iH=window.location.href.replace(iP,'');
+        ((iI=iT.indexOf('/'))!==-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+        if(iT!==iH.substring(0,iI))iS+='&f'+escape(iR);
+        iS+='&r'+escape(iH);
+        iD.write('<img src="'+iS+'" width="88" height="31" />');
+        //--></script></a><!-- End of I.UA counter -->
 </footer>
 </body>
 </html>

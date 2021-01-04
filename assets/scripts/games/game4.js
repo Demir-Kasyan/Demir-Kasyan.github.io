@@ -1,3 +1,5 @@
+var count = true;
+
 function loadImages(sources, callback) {
     var assetDir = '../../assets/images/games/game4/';
     var images = {};
@@ -207,3 +209,15 @@ var sources = {
     fun2: 'fun2.png',
 };
 loadImages(sources, initStage);
+
+var timer = document.getElementById("timer");
+var zero = 0;
+function tick(){
+    setTimeout(()=>{
+        if(count){
+            timer.innerText = ++zero + " seconds"
+            tick();
+        }
+    }, 1000);
+}
+tick();

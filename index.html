@@ -12,29 +12,28 @@
 
 <body>
 <header> <a href="index.html">Home</a></header>
-<div class="container">
-    <div class="center">
+<div class="container" style="overflow: auto">
+    <div class="center" >
         <button onclick="location.href='./routs/meminy.html'">Meniny</button>
         <button onclick="location.href='./routs/games.html'">Games</button>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
+        <br><br>
+         </div>
 </div>
 <footer>
-    <!-- HotLog -->
-    <span id="hotlog_counter"></span>
-    <span id="hotlog_dyn"></span>
-    <script type="text/javascript"> var hot_s = document.createElement('script');
-    hot_s.type = 'text/javascript'; hot_s.async = true;
-    hot_s.src = 'http://js.hotlog.ru/dcounter/2593166.js';
-    hot_d = document.getElementById('hotlog_dyn');
-    hot_d.appendChild(hot_s);
-    </script>
-    <noscript>
-        <a href="http://click.hotlog.ru/?2593166" target="_blank">
-            <img src="http://hit5.hotlog.ru/cgi-bin/hotlog/count?s=2593166&im=68" border="0"
-                 title="HotLog" alt="HotLog"></a>
-    </noscript>
-    <!-- /HotLog -->
+    <!-- I.UA counter --><a href="https://www.i.ua/" target="_blank" onclick="this.href='https://i.ua/r.php?231978';" title="Rated by I.UA">
+    <script>
+    iS='http'+(window.location.protocol==='https:'?'s':'')+
+        '://r.i.ua/s?u231978&p4&n'+Math.random();
+    iD=document;if(!iD.cookie)iD.cookie="b=b; path=/";if(iD.cookie)iS+='&c1';
+    iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
+        +"&w"+screen.width+'&h'+screen.height;
+    iT=iR=iD.referrer.replace(iP=/^[a-z]*:\/\//,'');iH=window.location.href.replace(iP,'');
+    ((iI=iT.indexOf('/'))!==-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+    if(iT!==iH.substring(0,iI))iS+='&f'+escape(iR);
+    iS+='&r'+escape(iH);
+    iD.write('<img src="'+iS+'" width="88" height="31" />');
+    //--></script></a><!-- End of I.UA counter -->
 </footer>
 </body>
 </html>
