@@ -149,6 +149,7 @@ function initStage(images) {
 
                     if (++score >= 8) {
                         var text = 'You win! Enjoy your booty!';
+                        count = false;
                         drawBackground(background, images.back, text);
                     }
 
