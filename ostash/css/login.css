@@ -1,0 +1,36 @@
+div.login{
+    margin: auto;
+    height: 80%;
+    width: 50%;
+    border: 0.1rem solid white;
+}
+div.login{
+    color: white;
+    display: grid;
+    grid-template-rows: 25% 75%;
+}
+.form-wrapper{
+    display: grid;
+    /*grid-template-rows: auto;*/
+}
+
+form > label{
+    display: block;
+    margin: 1rem;
+}
+form{
+    margin: auto;
+}
+div.form-header{
+    display: flex;
+    justify-content: center;
+    background-color: cornflowerblue;
+}
+div.form-header > p{
+    font-size: 2rem;
+    margin: auto;
+}
+div.button-login{
+    display: flex;
+    justify-content: center;
+}
