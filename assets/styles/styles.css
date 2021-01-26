@@ -10,8 +10,21 @@
     padding: 0;
     pointer-events: none;
 }
-a,input{
+a,input, select{
     pointer-events: auto;
+}
+select{
+    margin-right: auto;
+    margin-left: auto;
+    height: 50%;
+    width: 80%;
+
+    background-color: var(--shadow-color);
+    text-align: center;
+    color: var(--second-text-color);
+
+    border: none;
+    outline: none;
 }
 a{
     color: var(--second-text-color);
