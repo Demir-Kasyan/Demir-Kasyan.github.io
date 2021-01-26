@@ -28,6 +28,9 @@ html, body{
     color: var(--text-color);
     background-color: var(--background);
 }
+strong{
+    font-size: 110%;
+}
 body{
     display: grid;
         grid-template-rows: 10% auto 8%;
@@ -135,6 +138,9 @@ form{
     display: grid;
         grid-template-rows: 15% 15% 10% 10% auto 10% 10%;
         grid-gap: 2%;
+}
+form.reg{
+    grid-template-rows: 15% 10% 10% 10% 10% 10% auto;
 }
 form>*{
     text-align: center;
