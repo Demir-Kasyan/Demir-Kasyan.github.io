@@ -31,7 +31,8 @@ select>*{
 }
 .commands-grid{
     display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 3%;
 }
 a{
     color: var(--second-text-color);
