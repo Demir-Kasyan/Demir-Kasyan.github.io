@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scripters</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/global.css">
+</head>
+<body>
+<header>
+    <h1>
+        <div>SCRIPTERS</div>
+    </h1>
+    <h2>
+        <div>JS</div>
+    </h2>
+</header>
+<main>
+    <% if(login) { %>
+            <%- include('./ejs/login'); %>
+    <% } else if (obj!==null){ %>
+            <%- include('./ejs/test', {obj: obj}); %>
+    <% } else { %>
+            <%- include('./ejs/finish', {arr: arr, cnt: clien}); %>
+    <% }%>
+</main>
+<footer>
+    <p>Made by Demir Kasyan</p>
+</footer>
+</body>
+</html>
