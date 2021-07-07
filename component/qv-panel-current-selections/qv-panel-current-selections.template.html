@@ -1,0 +1,18 @@
+<div style="height: 10px;">
+  <ul class="list" style="left: 0px;">
+    <li ng-repeat="field in $ctrl.fields" class="item" style="border-left: 1px solid #404040;">
+      <div class="current-selections-item">
+        <div class="text current-selection-item-text">
+          <div class="text-wrap" style="height: 30px; padding-top: 10px;">
+            <span class="name">{{field.qFieldName}}</span>
+          </div>
+        </div>
+        <div class="options">
+          <div class="remove current-selection-item-text">
+            <span class="lui-clear-all lui-icon lui-icon--remove" ng-click="$ctrl.filterClear(field.qFieldName)"></span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

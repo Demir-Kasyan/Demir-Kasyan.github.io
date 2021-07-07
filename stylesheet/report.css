@@ -1,0 +1,10 @@
+.cell {
+  border: 2px solid transparent;
+  margin: 5px;
+  position: absolute;
+}
+
+.report {
+  position: relative;
+  width: 100%;
+}

@@ -1,0 +1,9 @@
+<div class="report" ng-style="{'height': $ctrl.layout.height + 'vh'}">
+  <div class="cell" ng-repeat="cell in $ctrl.cells" ng-style="{'left': cell.bounds.x + 'vw', 'top': cell.bounds.y + 'vh', 'height': 'calc(' + cell.bounds.height + 'vh - 10px)', 'width': 'calc(' + cell.bounds.width + 'vw - 10px)'}">
+    <div ng-switch on="cell.type" style="height: 100%;">
+      <d3-linechart ng-switch-when="linechart" q-object="cell" q-data-pages="cell.dataPages"></d3-linechart>
+      <d3-barchart ng-switch-when="barchart" q-object="cell" q-data-pages="cell.dataPages"></d3-barchart>
+      <div ng-switch-default>{{cell.type}}</div>
+    </div>
+  </div>
+</div>
