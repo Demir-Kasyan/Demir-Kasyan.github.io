@@ -1,184 +1,357 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "version": "1.0.0",
-      "title": "Swagger Petstore",
-      "license": {
-        "name": "MIT"
-      }
+        "version": "1.0.0",
+        "title": "Swagger Petstore",
+        "license": {
+            "name": "MIT"
+        }
     },
     "servers": [
-      {
-        "url": "http://petstore.swagger.io/v1"
-      }
+        {
+            "url": "http://petstore.swagger.io/v1"
+        }
     ],
     "paths": {
-      "/pets": {
-        "get": {
-          "summary": "List all pets",
-          "operationId": "listPets",
-          "tags": [
-            "pets"
-          ],
-          "parameters": [
-            {
-              "name": "limit",
-              "in": "query",
-              "description": "How many items to return at one time (max 100)",
-              "required": false,
-              "schema": {
-                "type": "integer",
-                "format": "int32"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "A paged array of pets",
-              "headers": {
-                "x-next": {
-                  "description": "A link to the next page of responses",
-                  "schema": {
-                    "type": "string"
-                  }
+        "/trading/users/:user_id/orders": {
+            "get": {
+                "summary": "List all pets",
+                "operationId": "listPets",
+                "tags": [
+                    "pets"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "How many items to return at one time (max 100)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A paged array of pets",
+                        "headers": {
+                            "x-next": {
+                                "description": "A link to the next page of responses",
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Pets"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
                 }
-              },
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Pets"
-                  }
-                }
-              }
             },
-            "default": {
-              "description": "unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
+            "post": {
+                "summary": "Create a pet",
+                "operationId": "createOrder",
+                "tags": [
+                    "orders"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Null response"
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
         },
-        "post": {
-          "summary": "Create a pet",
-          "operationId": "createPets",
-          "tags": [
-            "pets"
-          ],
-          "responses": {
-            "201": {
-              "description": "Null response"
-            },
-            "default": {
-              "description": "unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
+        "/pets/{petId}": {
+            "get": {
+                "summary": "Info for a specific pet",
+                "operationId": "showPetById",
+                "tags": [
+                    "pets"
+                ],
+                "parameters": [
+                    {
+                        "name": "petId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The id of the pet to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Expected response to a valid request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Pet"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
         }
-      },
-      "/pets/{petId}": {
-        "get": {
-          "summary": "Info for a specific pet",
-          "operationId": "showPetById",
-          "tags": [
-            "pets"
-          ],
-          "parameters": [
-            {
-              "name": "petId",
-              "in": "path",
-              "required": true,
-              "description": "The id of the pet to retrieve",
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Expected response to a valid request",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Pet"
-                  }
-                }
-              }
-            },
-            "default": {
-              "description": "unexpected error",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     },
     "components": {
-      "schemas": {
-        "Pet": {
-          "type": "object",
-          "required": [
-            "id",
-            "name"
-          ],
-          "properties": {
-            "id": {
-              "type": "integer",
-              "format": "int64"
+        "schemas": {
+            "Order": {
+                "type": "object",
+                "required": [
+                    "symbol",
+                    "qty",
+                    "notional",
+                    "side",
+                    "type",
+                    "time_in_force"
+                ],
+                "properties": {
+                    "symbol": {
+                        "type": "string",
+                        "description": "Symbol or asset ID to identify the asset to trade",
+                        "example": "AAPL"
+                    },
+                    "qty": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Number of shares to trade. Can be fractionable for only market and day order types.",
+                        "example": "4.125"
+                    },
+                    "notional": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Dollar amount to trade. Cannot work with qty. Can only work for market order types and time_in_force = day.",
+                        "example": "4.125"
+                    },
+                    "side": {
+                        "type": "string",
+                        "description": "buy or sell",
+                        "enum": [
+                            "buy",
+                            "sell"
+                        ]
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "market",
+                            "limit",
+                            "stop",
+                            "stop_limit",
+                            "trailing_stop"
+                        ]
+                    },
+                    "time_in_force": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "enum": [
+                            "day",
+                            "gtc",
+                            "opg",
+                            "cls",
+                            "ioc",
+                            "fok"
+                        ]
+                    },
+                    "limit_price": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Required. If type is limit or stop_limit"
+                    },
+                    "stop_price": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Required. If type is stop or stop_limit"
+                    },
+                    "trail_price": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Required. If type is trailing_stop, trail_price or trail_percent is required"
+                    },
+                    "trail_percent": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Required. If type is trailing_stop, trail_price or trail_percent is required"
+                    },
+                    "extended_hours": {
+                        "type": "string",
+                        "description": "Defaults to false. If true, order will be eligible to execute in premarket/afterhours. Only works with type limit and time_in_force = day."
+                    },
+                    "client_order_id": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "UUID"
+                            }
+                        ],
+                        "description": "A unique identifier for the order. Automatically generated if not sent. (<= 48 characters)"
+                    },
+                    "order_class": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "simple, bracket, oco or oto",
+                        "enum": [
+                            "simple",
+                            "bracket",
+                            "oco",
+                            "oto"
+                        ]
+                    },
+                    "take_profit": {
+                        "type": "object",
+                        "description": "Takes in a string/number value for limit_price"
+                    },
+                    "stop_loss": {
+                        "type": "object",
+                        "description": "Takes in a string/number values for stop_price and limit_price"
+                    },
+                    "commission": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "The commission you want to collect from the user."
+                    }
+                }
             },
-            "name": {
-              "type": "string"
-            },
-            "tag": {
-              "type": "string"
-            }
-          }
-        },
-        "Pets": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/Pet"
-          }
-        },
-        "Error": {
-          "type": "object",
-          "required": [
-            "code",
-            "message"
-          ],
-          "properties": {
-            "code": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "message": {
-                "oneOf": [
-                    {
+            "Pet": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
                         "type": "string"
                     },
-                    {
-                        "type": "number"
+                    "tag": {
+                        "type": "string"
                     }
-                ]
+                }
+            },
+            "Pets": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Pet"
+                }
+            },
+            "Error": {
+                "type": "object",
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "message": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
+}

@@ -48,19 +48,14 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "api_key": []
-                    }
-                ]
+                }
             },
             "post": {
                 "tags": [
                     "order"
                 ],
                 "summary": "Creating an order for your end customer.",
-                "description": "",
+                "description": "Each trading request must pass in the user_id in the URL.",
                 "operationId": "createOrder",
                 "consumes": [
                     "application/json"
