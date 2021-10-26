@@ -59,7 +59,7 @@
                 "tags": [
                     "order"
                 ],
-                "summary": "Place an order for a pet",
+                "summary": "Create order to",
                 "description": "",
                 "operationId": "placeOrder",
                 "consumes": [
@@ -73,10 +73,113 @@
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "order placed for purchasing the pet",
+                        "description": "Creating an order for your end customer. Each trading request must pass in the user_id in the URL.",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Order"
+                            "type": "object",
+                            "required": [
+                                "symbol",
+                                "qty",
+                                "notional",
+                                "side",
+                                "type",
+                                "time_in_force"
+                            ],  
+                            "properties": {
+                                "symbol": {
+                                    "type": "string",
+                                    "description": "Symbol or asset ID to identify the asset to trade",
+                                    "example": "AAPL"
+                                },
+                                "qty": {
+                                    "type": ["string","number"],
+                                    "description": "Number of shares to trade. Can be fractionable for only market and day order types.",
+                                    "example": "4.125"
+                                },
+                                "notional": {
+                                    "type": ["string","number"],
+                                    "description": "Dollar amount to trade. Cannot work with qty. Can only work for market order types and time_in_force = day.",
+                                    "example": "4.125"
+                                },
+                                "side": {
+                                    "type": "string",
+                                    "description": "buy or sell",
+                                    "enum": [
+                                        "buy",
+                                        "sell"
+                                    ]
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "market",
+                                        "limit",
+                                        "stop",
+                                        "stop_limit",
+                                        "trailing_stop"
+                                    ]
+                                },
+                                "time_in_force": {
+                                    "type": ["string", "number"],
+                                    "enum": [
+                                        "day",
+                                        "gtc",
+                                        "opg",
+                                        "cls",
+                                        "ioc",
+                                        "fok"
+                                    ]
+                                },
+                                "limit_price": {
+                                    "type": ["string","number"],
+                                    "description": "Required. If type is limit or stop_limit"
+                                },
+                                "stop_price": {
+                                    "type": ["string","number"],
+                                    "description": "Required. If type is stop or stop_limit"
+                                },
+                                "trail_price": {
+                                    "type": ["string","number"],
+                                    "description": "Required. If type is trailing_stop, trail_price or trail_percent is required"
+                                },
+                                "trail_percent": {
+                                    "type": ["string","number"],
+                                    "description": "Required. If type is trailing_stop, trail_price or trail_percent is required"
+                                },
+                                "extended_hours": {
+                                    "type": "string",
+                                    "description": "Defaults to false. If true, order will be eligible to execute in premarket/afterhours. Only works with type limit and time_in_force = day."
+                                },
+                                "client_order_id": {
+                                    "type": ["string","UUID"],
+                                    "description": "A unique identifier for the order. Automatically generated if not sent. (<= 48 characters)"
+                                },
+                                "order_class": {
+                                    "type": ["string","number"],
+                                    "description": "simple, bracket, oco or oto",
+                                    "enum": [
+                                        "simple",
+                                        "bracket",
+                                        "oco",
+                                        "oto"
+                                    ]
+                                },
+                                "take_profit": {
+                                    "type": "object",
+                                    "description": "Takes in a string/number value for limit_price"
+                                },
+                                "stop_loss": {
+                                    "type": "object",
+                                    "description": "Takes in a string/number values for stop_price and limit_price"
+                                },
+                                "commission": {
+                                    "type": ["string","number"],
+                                    "description": "The commission you want to collect from the user."
+                                }
+                            },
+                            "xml": {
+                                "name": "Order"
+                            }
                         }
                     }
                 ],
