@@ -1,5 +1,5 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.1",
     "info": {
         "description": "",
         "version": "0.0.1",
@@ -59,9 +59,9 @@
                 "tags": [
                     "order"
                 ],
-                "summary": "Create order to",
+                "summary": "Creating an order for your end customer.",
                 "description": "",
-                "operationId": "placeOrder",
+                "operationId": "createOrder",
                 "consumes": [
                     "application/json"
                 ],
@@ -73,7 +73,7 @@
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "Creating an order for your end customer. Each trading request must pass in the user_id in the URL.",
+                        "description": "Each trading request must pass in the user_id in the URL.",
                         "required": true,
                         "schema": {
                             "type": "object",
@@ -134,9 +134,13 @@
                                     ]
                                 },
                                 "time_in_force": {
-                                    "type": [
-                                        "string",
-                                        "number"
+                                    "oneOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "number"
+                                        }
                                     ],
                                     "enum": [
                                         "day",
