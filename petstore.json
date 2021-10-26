@@ -168,7 +168,14 @@
               "format": "int32"
             },
             "message": {
-              "type": "string"
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "number"
+                    }
+                ]
             }
           }
         }
