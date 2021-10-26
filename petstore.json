@@ -355,235 +355,234 @@
                     }
                 }
             }
-        },
-        "components": {
-            "schemas": {
-                "Order": {
-                    "type": "object",
-                    "required": [
-                        "symbol",
-                        "qty",
-                        "notional",
-                        "side",
-                        "type",
-                        "time_in_force"
-                    ],
-                    "properties": {
-                        "symbol": {
-                            "type": "string",
-                            "description": "Symbol or asset ID to identify the asset to trade",
-                            "example": "AAPL"
-                        },
-                        "qty": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "description": "Number of shares to trade. Can be fractionable for only market and day order types.",
-                            "example": "4.125"
-                        },
-                        "notional": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "description": "Dollar amount to trade. Cannot work with qty. Can only work for market order types and time_in_force = day.",
-                            "example": "4.125"
-                        },
-                        "side": {
-                            "type": "string",
-                            "description": "buy or sell",
-                            "enum": [
-                                "buy",
-                                "sell"
-                            ]
-                        },
-                        "type": {
-                            "type": "string",
-                            "enum": [
-                                "market",
-                                "limit",
-                                "stop",
-                                "stop_limit",
-                                "trailing_stop"
-                            ]
-                        },
-                        "time_in_force": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "enum": [
-                                "day",
-                                "gtc",
-                                "opg",
-                                "cls",
-                                "ioc",
-                                "fok"
-                            ]
-                        },
-                        "limit_price": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "description": "Required. If type is limit or stop_limit"
-                        },
-                        "stop_price": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "description": "Required. If type is stop or stop_limit"
-                        },
-                        "trail_price": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "description": "Required. If type is trailing_stop, trail_price or trail_percent is required"
-                        },
-                        "trail_percent": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "description": "Required. If type is trailing_stop, trail_price or trail_percent is required"
-                        },
-                        "extended_hours": {
-                            "type": "string",
-                            "description": "Defaults to false. If true, order will be eligible to execute in premarket/afterhours. Only works with type limit and time_in_force = day."
-                        },
-                        "client_order_id": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "UUID"
-                                }
-                            ],
-                            "description": "A unique identifier for the order. Automatically generated if not sent. (<= 48 characters)"
-                        },
-                        "order_class": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "description": "simple, bracket, oco or oto",
-                            "enum": [
-                                "simple",
-                                "bracket",
-                                "oco",
-                                "oto"
-                            ]
-                        },
-                        "take_profit": {
-                            "type": "object",
-                            "description": "Takes in a string/number value for limit_price"
-                        },
-                        "stop_loss": {
-                            "type": "object",
-                            "description": "Takes in a string/number values for stop_price and limit_price"
-                        },
-                        "commission": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "description": "The commission you want to collect from the user."
-                        }
-                    }
-                },
-                "ClosedOrder": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string",
-                            "example": "aaeec1f3-4917-4cfd-b89f-bab24495d2ff"
-                        },
-                        "status": {
-                            "type": "string",
-                            "example": "200"
-                        },
-                        "body": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/components/schemas/Order"
+        }
+    },
+    "components": {
+        "schemas": {
+            "Order": {
+                "type": "object",
+                "required": [
+                    "symbol",
+                    "qty",
+                    "notional",
+                    "side",
+                    "type",
+                    "time_in_force"
+                ],
+                "properties": {
+                    "symbol": {
+                        "type": "string",
+                        "description": "Symbol or asset ID to identify the asset to trade",
+                        "example": "AAPL"
+                    },
+                    "qty": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
                             }
+                        ],
+                        "description": "Number of shares to trade. Can be fractionable for only market and day order types.",
+                        "example": "4.125"
+                    },
+                    "notional": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Dollar amount to trade. Cannot work with qty. Can only work for market order types and time_in_force = day.",
+                        "example": "4.125"
+                    },
+                    "side": {
+                        "type": "string",
+                        "description": "buy or sell",
+                        "enum": [
+                            "buy",
+                            "sell"
+                        ]
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "market",
+                            "limit",
+                            "stop",
+                            "stop_limit",
+                            "trailing_stop"
+                        ]
+                    },
+                    "time_in_force": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "enum": [
+                            "day",
+                            "gtc",
+                            "opg",
+                            "cls",
+                            "ioc",
+                            "fok"
+                        ]
+                    },
+                    "limit_price": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Required. If type is limit or stop_limit"
+                    },
+                    "stop_price": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Required. If type is stop or stop_limit"
+                    },
+                    "trail_price": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Required. If type is trailing_stop, trail_price or trail_percent is required"
+                    },
+                    "trail_percent": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "Required. If type is trailing_stop, trail_price or trail_percent is required"
+                    },
+                    "extended_hours": {
+                        "type": "string",
+                        "description": "Defaults to false. If true, order will be eligible to execute in premarket/afterhours. Only works with type limit and time_in_force = day."
+                    },
+                    "client_order_id": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "UUID"
+                            }
+                        ],
+                        "description": "A unique identifier for the order. Automatically generated if not sent. (<= 48 characters)"
+                    },
+                    "order_class": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "simple, bracket, oco or oto",
+                        "enum": [
+                            "simple",
+                            "bracket",
+                            "oco",
+                            "oto"
+                        ]
+                    },
+                    "take_profit": {
+                        "type": "object",
+                        "description": "Takes in a string/number value for limit_price"
+                    },
+                    "stop_loss": {
+                        "type": "object",
+                        "description": "Takes in a string/number values for stop_price and limit_price"
+                    },
+                    "commission": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ],
+                        "description": "The commission you want to collect from the user."
+                    }
+                }
+            },
+            "ClosedOrder": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": "aaeec1f3-4917-4cfd-b89f-bab24495d2ff"
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": "200"
+                    },
+                    "body": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Order"
                         }
                     }
-                    
-                },
-                "Orders": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/components/schemas/Order"
-                    }
-                },
-                "ClosedOrders": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/components/schemas/ClosedOrder"
-                    }
-                },
-                "Error": {
-                    "type": "object",
-                    "required": [
-                        "code",
-                        "message"
-                    ],
-                    "properties": {
-                        "code": {
-                            "type": "integer",
-                            "format": "int32"
-                        },
-                        "message": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ]
-                        }
+                }
+            },
+            "Orders": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Order"
+                }
+            },
+            "ClosedOrders": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/ClosedOrder"
+                }
+            },
+            "Error": {
+                "type": "object",
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "message": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
                     }
                 }
             }
